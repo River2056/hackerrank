@@ -1,15 +1,12 @@
-package com.river.medium;
+package com.river.medium.regextest;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * RegexTest
- */
-public class RegexTest {
+public class Solution {
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             String ipStr = sc.next();
@@ -35,5 +32,5 @@ public class RegexTest {
             }
         }
         sc.close();
-    }
+    } 
 }

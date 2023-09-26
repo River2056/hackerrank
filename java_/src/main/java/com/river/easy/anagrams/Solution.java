@@ -1,13 +1,13 @@
-package com.river.easy;
+package com.river.easy.anagrams;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Anagrams
+ * Solution
  */
-public class Anagrams {
+public class Solution {
 
     public static String isAnagram(String a, String b) {
         if (a.length() != b.length())
@@ -37,4 +37,5 @@ public class Anagrams {
         String b = sc.nextLine();
         System.out.println(isAnagram(a.toLowerCase(), b.toLowerCase()));
     }
+    
 }

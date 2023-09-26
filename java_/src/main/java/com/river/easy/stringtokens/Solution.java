@@ -1,11 +1,11 @@
-package com.river.easy;
+package com.river.easy.stringtokens;
 
 import java.util.Scanner;
 
 /**
- * StringTokens
+ * Solution
  */
-public class StringTokens {
+public class Solution {
 
     public static void stringTokens(String s) {
         String[] arr = new String[0];
@@ -26,4 +26,5 @@ public class StringTokens {
         String s = sc.nextLine();
         stringTokens(s);
     }
+
 }

@@ -1,12 +1,11 @@
-package com.river.easy;
+package com.river.easy.patternsyntaxchecker;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
- * PatternSyntaxChecker
+ * Solution
  */
-public class PatternSyntaxChecker {
+public class Solution {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
@@ -23,4 +22,5 @@ public class PatternSyntaxChecker {
             }
         }
     }
+
 }
