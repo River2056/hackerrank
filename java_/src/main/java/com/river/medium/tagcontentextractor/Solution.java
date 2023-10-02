@@ -18,6 +18,7 @@ public class Solution {
             String line = in.nextLine();
 
             // Write your code here
+            extract(line);
 
             testCases--;
         }
@@ -26,14 +27,28 @@ public class Solution {
     private static List<String> extract(String line) {
         List<String> result = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
+        StringBuilder tokenBuilder = new StringBuilder();
         Deque<String> stack = new ArrayDeque<>();
         Map<Character, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < line.length(); i++) {
-            if (line.charAt(i) == '<')
-                addToMap('<', i, map);
-            if (line.charAt(i) == '>')
-                addToMap('>', i, map);
+        int i = 0;
+        while (i < line.length()) {
+            if (line.charAt(i) == '<') {
+                tokenBuilder.append(line.charAt(i));
+                int j = i;
+                while (line.charAt(j) != '>' && j < line.length()) {
+                    tokenBuilder.append(line.charAt(j));
+                    j++;
+                }
+                tokenBuilder.append(line.charAt(j));
+                stack.add(tokenBuilder.toString());
+                i = j;
+            }
+            sb.append(line.charAt(i));
+            i++;
+            /* if (line.charAt(i) == '>')
+                addToMap('>', i, map); */
         }
+
 
         return null;
     }
