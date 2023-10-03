@@ -1,4 +1,4 @@
-srcFile:=$(shell find ./src -type d -iname "*tag*" | xargs -I {} find {} -iname "solution.*")
+srcFile:=$(shell find ./src -type d -iname "*$(filename)*" | xargs -I {} find {} -iname "solution.*")
 
 run:
 	javac -cp src -d bin $(srcFile)
