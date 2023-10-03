@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Solution {
 
@@ -24,43 +26,18 @@ public class Solution {
         }
     }
 
-    private static List<String> extract(String line) {
-        List<String> result = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        StringBuilder tokenBuilder = new StringBuilder();
-        Deque<String> stack = new ArrayDeque<>();
-        Map<Character, List<Integer>> map = new HashMap<>();
-        int i = 0;
-        while (i < line.length()) {
-            if (line.charAt(i) == '<') {
-                tokenBuilder.append(line.charAt(i));
-                int j = i;
-                while (line.charAt(j) != '>' && j < line.length()) {
-                    tokenBuilder.append(line.charAt(j));
-                    j++;
-                }
-                tokenBuilder.append(line.charAt(j));
-                stack.add(tokenBuilder.toString());
-                i = j;
+    private static void extract(String line) {
+        Pattern p = Pattern.compile("<([^<>]+)>([^<>]+)<\\/(\\1)>");
+        Matcher m = p.matcher(line);
+        boolean isExists = false;
+        while (m.find()) {
+            String s = m.group(2);
+            if (!s.isEmpty()) {
+                System.out.println(m.group(2));
+                isExists = true;
             }
-            sb.append(line.charAt(i));
-            i++;
-            /* if (line.charAt(i) == '>')
-                addToMap('>', i, map); */
         }
-
-
-        return null;
-    }
-
-    private static void addToMap(Character key, Integer index, Map<Character, List<Integer>> map) {
-        List<Integer> indexes;
-        if (map.containsKey(key))
-            indexes = map.get(key);
-        else
-            indexes = new ArrayList<>();
-
-        indexes.add(index);
-        map.put(key, indexes);
+        if (!isExists)
+            System.out.println("None");
     }
 }
